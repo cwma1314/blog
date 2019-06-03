@@ -1,0 +1,168 @@
+/* pages/course_detail/course_detail.wxss */
+
+.art-header {
+  background-color: #f2f2f2;
+  width: 100%;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+.news-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 2px;
+  padding-top: 8px;
+  padding-right: 2px;
+  padding-bottom: 8px;
+  margin: 2px;
+  background-color: #fff;
+  border: 1px solid #eaeaea;
+  border-bottom: 1px solid #d0d0d0;
+  border-radius: 5px;
+}
+
+.c-detail-image {
+  width: 100%;
+  height: 460rpx;
+}
+
+.art-content {
+  height: 100%;
+  width: 100%;
+  min-height: 100%;
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.title {
+  width: 100%;
+  height: 88rpx;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.titleSel {
+  color: #0d0d0e;
+  font-size: 32rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.titleUnsel {
+  color: #858fab;
+}
+
+.headerLineSel {
+  background: #5f6fee;
+  height: 6rpx;
+  width: 40rpx;
+  position: relative;
+  margin-top: 10rpx;
+}
+
+.headerLineUnsel {
+  background: #fff;
+  height: 6rpx;
+  width: 40rpx;
+  position: relative;
+  margin-top: 10rpx;
+}
+
+.swiper {
+  width: 100%;
+  flex: 1;
+  height: 400px;
+ overflow-y:scroll;
+}
+
+.recordItem {
+  margin-top: 10rpx;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+}
+.name {
+  padding-top: 3px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  font-size: 13px;
+  width: 100%;
+}
+.name-sub-title{
+  font-size: 10px;
+  color: #837f7f;
+  margin-top: 8rpx;
+  margin-left: 18rpx;
+}
+.sub-title-delta{
+  border-bottom: 1px solid #d0d0d0;
+  width: 100%;
+  margin-bottom: 2px;
+  font-size: 13px;
+  color: #837f7f;
+  padding-top: 3px;
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 10px;
+}
+.sub-title-image{
+  position: absolute;
+  right: 10px;
+}
+.detail2 {
+  font-size: 15px;
+  position: absolute;
+  right: 10px;
+  color: #888;
+}
+
+.couser-title-index {
+  font-size: 14px;
+  margin: 4px;
+  text-align: center;
+  font-weight: 800;
+}
+.course-title-index-split {
+  margin-left: 20px;
+}
+.c-d-item-title {
+  margin-top: 3px;
+  font-size: 36rpx;
+  font-weight: bold;
+}
+.c-d-item-stu {
+  margin-top: 10px;
+}
+.c-d-item-stu .d-price{
+  color: #f51a1a;
+  font-weight: 600;
+  margin-right: 18px;
+}
+.c-d-item-stu .old-price{
+ font-size: 12px;
+  color: #d0d0d0;
+  text-decoration:line-through;
+  margin-right: 18px;
+}
+.c-d-item-stu-lis {
+  font-size: 12px;
+  color: #d0d0d0;
+}
+.fixed-flower-rank{
+  bottom: 0rpx;
+  width: 100%;
+  height: 90rpx;
+  border: 1rpx solid #ffffff;
+  background-color: #00a2ea;
+  color: #ffffff;
+  border-radius: 4px;
+  position: fixed;
+  text-align: center;
+  line-height: 36px;
+}

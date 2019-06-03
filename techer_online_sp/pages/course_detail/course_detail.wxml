@@ -1,0 +1,68 @@
+<!--detail.wxml-->
+<view class="container">
+  <view class="art-header">
+    <view class="news-item">
+      <view class="news-item-right">
+        <image src="{{art.image}}" class="c-detail-image" />
+      </view>
+      <view class="news-item-left">
+        <view class="c-d-item-title">19版最新高中英语听力提升篇B</view>
+        <view class="c-d-item-stu">
+          <text class='d-price'>￥0.00</text>
+          <text class='old-price'>原价:12.00</text>
+          <text class='c-d-item-stu-lis'>累计21312次学习</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="art-content">
+    <!--Tab布局-->
+    <view class='title'>
+      <view class='titleSel' bindtap='titleClick' data-idx='0'>
+        <text>目录</text>
+        <hr class="{{0 == currentIndex ? 'headerLineSel' : 'headerLineUnsel'}}" />
+      </view>
+
+      <view class='titleSel' bindtap='titleClick' data-idx='1'>
+        <text>简介</text>
+        <hr class="{{1 == currentIndex ? 'headerLineSel' : 'headerLineUnsel'}} " />
+      </view>
+    </view>
+    <!--内容布局-->
+    <swiper class='swiper' bindchange='pagechange' current='{{currentIndex}}'>
+      <swiper-item class='swiper'>
+        <view wx:for="{{chapter_list}}" wx:for-item="mItem" wx:key="mItem">
+          <view class="couser-title-index" wx:if="{{mItem.type==1}}">第一部分
+            <text class='course-title-index-split'>专项训练</text>
+          </view>
+          <view class="couser-title-index" wx:if="{{mItem.type==2}}">第二部分
+            <text class='course-title-index-split'>模拟试题</text>
+          </view>
+          <view wx:if="{{mItem.type==1}}" wx:for="{{mItem.chapter}}" class='recordItem' wx:key="index">
+            <view class='name'>{{item.title}}
+              <navigator wx:for="{{item.sub_titles}}" url="../course_topic/course_topic?id={{item.id}}&title={{item.name}}&type=1" wx:key="index"class='name-sub-title sub-title-delta'>
+              <view>{{item.name}}</view>
+              <image class="sub-title-image" src='/utils/img/btn_read_listenS.png' style='width:50rpx;height:50rpx;margin-top:3px;'></image></navigator>
+            </view>
+          </view>
+          <navigator wx:if="{{mItem.type==2}}" url="../course_topic/course_topic?id={{item.id}}&title={{item.title}}&type=2" wx:for="{{mItem.chapter}}" class='recordItem' wx:key="index">
+            <view class='name'>{{item.title}}
+              <view class='name-sub-title'>{{item.sub_title}}</view>
+            </view>
+            <view class="detail2">
+              <image src='/utils/img/btn_read_listenS.png' style='width:50rpx;height:50rpx;margin-top:3px;'></image>
+            </view>
+          </navigator>
+        </view>
+      </swiper-item>
+      <swiper-item class='swiper' class='swiper'>
+        <view class='art-content'>
+          <image src="{{art.image}}" />
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+  <!-- <view class="fixed-flower-rank" bindtap="tapShowFlowerRank">
+    <text>购买课程</text>
+  </view> -->
+</view>

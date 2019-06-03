@@ -1,0 +1,41 @@
+<!--index.wxml-->
+<view class="container">
+  <view id="search_input">
+    <form bindsubmit="searhFinput">
+      <view class="form">
+        <view class="form_input">
+          <view>
+            <icon type="search" size="16" color="#aaa" />
+          </view>
+          <input type="text" auto-focus maxlength="20" name="name" bindinput="inputext" placeholder="搜索课程" value="{{value}}" />
+          <view class="sf_clear" hidden="{{!value}}" bindtap="clear_kw">
+            <icon type="clear" size="16" color="#aaa" />
+          </view>
+        </view>
+        <view class="button">
+          <button form-type="submit" plain="true">
+            搜索
+          </button>
+        </view>
+      </view>
+    </form>
+  </view>
+  <view class="news-item-container">
+    <block wx:for="{{list}}" wx:key="index" wx:for-index="id">
+      <navigator url="../course_detail/course_detail?id={{item.id}}">
+        <view class="news-item">
+          <view class="news-item-right">
+            <image src="{{item.image}}" class="news-image" />
+          </view>
+          <view class="news-item-left">
+            <view class="news-item-title">{{item.title}}</view>
+            <view class="news-item-lisnter">{{item.lisnter}}人试听过</view>
+            <view class="news-item-topic">{{item.chapter}}章 | {{item.topic}}题</view>
+          </view>
+        </view>
+      </navigator>
+    </block>
+    <button type="primary" class="load-btn" loading="{{loading}}" plain="{{plain}}" bindtap="loadMore"> 更多 </button>
+  </view>
+
+</view>

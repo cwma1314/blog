@@ -1,0 +1,58 @@
+/**用户信息样式**/
+.info-container {
+  background-color: #efeff4;
+  height: 100%;
+}
+
+.page-body-setting {
+  margin-top: 12rpx;
+  height: 100%;
+}
+
+.page-body-setting-item {
+  height: 90rpx;
+  background-color: #fff;
+  font-size: 32rpx;
+  line-height: 90rpx;
+  border-bottom-width: 90%;
+  border-bottom: 2px solid #efeff4;
+}
+
+.own-info-item {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.info-name {
+  width: 40%;
+  font-size: 14px;
+  color: gray;
+  text-align: left;
+  margin-left: 10px;
+}
+
+.info-text {
+  width: 60%;
+  text-align: right;
+  margin-right: 10px;
+  font-size: 14px;
+  color: gray;
+}
+
+.input-text {
+  margin-top: 20rpx;
+}
+
+.button {
+  margin-top: 8px;
+  background-color: #00a2ea;
+  color: #fff;
+  width: 96%;
+  margin-bottom: 10px;
+}
+radio{
+}
+.button-hover {
+  background-color: green;
+}

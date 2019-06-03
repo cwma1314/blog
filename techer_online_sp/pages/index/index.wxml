@@ -1,0 +1,48 @@
+<!--index.wxml-->
+<view class="container">
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" class="banners" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{banner}}" wx:key="index">
+      <swiper-item class="banner">
+        <image src="{{item.image}}" data-id="{{item.id}}" bindtap="bindViewTap" class="banner-image" width="100%" height="100%" />
+        <text class="banner-title">{{item.title}}</text>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="news-item-container">
+    <text class="sub-title"><text class="sub-title-spilt-left">|</text>我的课程</text>
+    <text class="sub-title-right" bindtap='bindViewMyMoreTap'>更多</text>
+    <block wx:for="{{my_course_list}}" wx:key="index" wx:for-index="id">
+      <navigator url="../course_detail/course_detail?id={{item.id}}">
+        <view class="news-item">
+          <view class="news-item-right">
+            <image src="{{item.image}}" class="news-image" />
+          </view>
+          <view class="news-item-left">
+            <view class="news-item-title">{{item.title}}</view>
+            <progress percent="{{item.percent}}" stroke-width="6" class="cs-progress" color="#00a2ea"/>
+            <text class="cs-text">学习进度：{{item.read_num}}章/{{item.plan_num}}章</text>
+          </view>
+        </view>
+      </navigator>
+    </block>
+  </view>
+  <view class="news-item-container">
+    <text class="sub-title"><text class="sub-title-spilt-left">|</text>热门课程</text>
+    <text class="sub-title-right" bindtap='bindViewHotMoreTap'>更多</text>
+    <block wx:for="{{list}}" wx:key="index" wx:for-index="id">
+      <navigator url="../course_detail/course_detail?id={{item.id}}">
+        <view class="news-item">
+          <view class="news-item-right">
+            <image src="{{item.image}}" class="news-image" />
+          </view>
+          <view class="news-item-left">
+            <view class="news-item-title">{{item.title}}</view>
+            <view class="news-item-lisnter">{{item.lisnter}}人试听过</view>
+            <view class="news-item-topic">{{item.chapter}}章 | {{item.topic}}题</view>
+          </view>
+        </view>
+      </navigator>
+    </block>
+  </view>
+
+</view>

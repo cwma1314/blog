@@ -1,0 +1,110 @@
+<!--pages/course_topic/course_topic.wxml-->
+<view class="container">
+  <view class='rowCenter audio_top' style='width:100%;'>
+    <view class='voice' style='width:auto;margin-top:0;flex-grow:1;position:relative'>
+      <view>
+        <image src='/utils/img/voice.png' mode='widthFix'></image>
+        <text space='ensp'>{{navTitle}}</text>
+      </view>
+      <movable-area class="movable-area" id="movable-area">
+        <movable-view disabled='{{!voice.canPlay}}' bindchange="voiceSeekMove" bindtouchend='seekTouchEnd' direction="horizontal" class='movable-view' style="opacity:{{voice.canPlay?'1':'0'}}" id="movable-view" x="{{voice.margin}}" damping="1000">
+          <text style='font-size:20rpx;font-family:NotoSansHans-Regular;font-weight:400;color:rgba(255,255,255,1);line-height:30rpx;'>{{voice.time.min}}:{{voice.time.sec}}</text>
+        </movable-view>
+      </movable-area>
+      <progress stroke-width='8' backgroundColor='#fff' activeColor='#00a2ea' percent='{{voice.progress}}'></progress>
+    </view>
+    <view style='width:100rpx;height:100rpx;background:#00a2ea;box-shadow:0px 5px 15px 0px rgba(35,69,156,0.2);display:flex;align-items:center;justify-content:center' bindtap='voiceClick'>
+      <image src="/utils/img/{{voice.playing?'pause.png':'play.png'}}" style='width:48rpx;height:48rpx;'></image>
+    </view>
+  </view>
+  <view class='audio_content'>
+    <view class="li" data-index="0" bindtap='changeToggle'>
+      <view class="left" style='margin-left:4px;'>前言</view>
+      <view class="right" style='margin-right:1px;'>
+        <image wx:if="{{selectedFlag}}" src='/utils/img/top-line.png' style='width:60rpx;height:60rpx;'></image>
+        <image wx:else src='/utils/img/bottom-line.png' style='width:60rpx;height:60rpx;'></image>
+      </view>
+    </view>
+    <view hidden="{{!selectedFlag}}" class='frist-text'>
+      <view class='center-text' wx:if='{{cs_type==1}}'>
+        <rich-text nodes="{{specials.preface}}"></rich-text>
+      </view>
+      <view class='center-text' wx:if='{{cs_type==2}}'>
+        <rich-text nodes="{{tests.preface}}"></rich-text>
+      </view>
+    </view>
+    <view class="swiper-tab">
+      <view wx:if='{{cs_type==1}}' bindtap="swichNav" wx:for="{{specials.chapters}}" wx:key="index" class="bre swiper-tab-list {{tab==index ? 'on' : ''}}" data-current="{{index}}">{{item.name}}</view>
+      <view wx:if='{{cs_type==2}}' wx:for="{{tests.chapters}}" wx:key="index" class="swiper-tab-list {{tab==index ? 'on' : ''}}" bindtap="swichNav" data-current="{{index}}">{{item.name}}</view>
+    </view>
+    <swiper current="{{tab}}" class="swiper-box" style="height:{{winHeight}}px" duration="300" bindchange="tab_slide">
+      <swiper-item wx:if='{{cs_type==1}}' wx:for="{{specials.chapters}}" wx:for-item="c_item" wx:key="c_item">
+        <scroll-view scroll-y="true" style="height: 100%;">
+          <form bindsubmit="back_houtai">
+            <view class='topic-title'>第一节(共5小题;每小题1.5分,满分7.5分)</view>
+            <view class='topic-sub-title'>1.听下面5段对话,从题中所给A、B、C三个选项中选出最佳选项,并标在试卷的相应位置。将下列句子补充完整。每段对话读两遍。</view>
+            <view wx:for="{{c_item.topics}}" wx:key="index" class='input_w professional'>
+              <text>{{index+1}}、{{item.name}}</text>
+              <view class='options' wx:if="{{item.type==1}}">
+                <rich-text nodes="{{item.options}}"></rich-text>
+                <view wx:for="{{item.answer}}" class='topic_answer' wx:key="index">
+                  <view class='topic_index'>({{item.index}})</view>
+                  <input data-index="{{item.index}}" placeholder="输入({{item.index}})答案..." />
+                </view>
+              </view>
+              <view class='options' wx:if="{{item.type==2}}">
+                <radio-group class="radio-group" bindchange="radioChange">
+                  <label class="radio_lable" wx:for="{{item.options}}" wx:key="index">
+                    <radio value="{{item.name}}" color='#00a2ea' /> {{item.value}}
+                  </label>
+                </radio-group>
+              </view>
+              <view class='topic_answer' hidden="{{!is_show_answer}}">
+                  <view class='an_true'>
+                    <p>正确答案:</p>
+                    <p class="an_item_p" wx:for="{{item.answer}}" wx:for-item="an_item" wx:key="an_item">{{an_item.index}}:{{an_item.value}}</p>
+                  </view>
+                  <view class='an_originaltxt_box'>
+                    <view class="an_originaltxt {{index==uhide ? 'bule' : ''}}" bindtap='changeOriginalTxt' data-productid="{{index}}">【阅读听力材料】</view>
+                    <rich-text class='{{uhide==index?"":"hidden"}}' nodes="{{item.originaltxt}}"></rich-text>
+                  </view>
+                </view>
+            </view>
+          </form>
+        </scroll-view>
+      </swiper-item>
+      <swiper-item wx:if='{{cs_type==2}}' wx:for="{{tests.chapters}}" wx:for-item="t_item" wx:key="t_item">
+        <scroll-view scroll-y="true" style="height: 100%;">
+          <view class='topic-title'>第二节(共5小题;每小题1.5分,满分7.5分)</view>
+          <view class='topic-sub-title'>1.听下面5段对话,从题中所给A、B、C三个选项中选出最佳选项,并标在试卷的相应位置。将下列句子补充完整。每段对话读两遍。</view>
+          <form bindsubmit="back_houtai">
+            <view wx:for="{{t_item.topics}}" wx:key="index" class='input_w professional'>
+              <text>{{index+1}}、{{item.name}}</text>
+              <view class='options'>
+                <radio-group class="radio-group" bindchange="radioChange">
+                  <label class="radio_lable" wx:for="{{item.options}}" wx:key="index">
+                    <radio value="{{item.name}}" color='#00a2ea' /> {{item.value}}
+                  </label>
+                </radio-group>
+              </view>
+              <view class='topic_answer' hidden="{{!is_show_answer}}">
+                  <view class='an_true'>
+                    <p>正确答案:</p>
+                    <p class="an_item_p" wx:for="{{item.answer}}" wx:for-item="an_item" wx:key="an_item">{{an_item.value}}</p>
+                  </view>
+                  <view class='an_originaltxt_box'>
+                    <view class="an_originaltxt {{index==uhide ? 'bule' : ''}}" bindtap='changeOriginalTxt' data-productid="{{index}}">【阅读听力材料】</view>
+                    <rich-text class='{{uhide==index?"":"hidden"}}' nodes="{{item.originaltxt}}"></rich-text>
+                  </view>
+                </view>
+            </view>
+          </form>
+        </scroll-view>
+      </swiper-item>
+    </swiper>
+
+  </view>
+  <view class="fixed-flower-rank" bindtap="tapShowFlowerRank">
+        <text>提交</text>
+    </view>
+</view>

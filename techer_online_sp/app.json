@@ -1,0 +1,52 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/welcome/welcome",
+    "pages/person/person",
+    "pages/course/course",
+    "pages/course_detail/course_detail",
+    "pages/course_topic/course_topic",
+    "pages/feedback/feedback",
+    "pages/banner_detail/banner_detail",
+    "pages/my_course/my_course",
+    "pages/hot_course/hot_course",
+    "pages/personal_info/personal_info"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#00a2ea",
+    "navigationBarTitleText": "汇听会说",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#353535",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "utils/img/index-not.png",
+        "selectedIconPath": "utils/img/index-selected.png",
+        "text": "主页"
+      },
+      {
+        "pagePath": "pages/course/course",
+        "text": "课程",
+        "iconPath": "utils/img/read-not.png",
+        "selectedIconPath": "utils/img/read_selected.png"
+      },
+      {
+        "pagePath": "pages/person/person",
+        "text": "我的",
+        "iconPath": "utils/img/user_selected.png",
+        "selectedIconPath": "utils/img/user_selected.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 120000,
+    "downloadFile": 120000
+  },
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,75 @@
+<!--index.wxml-->
+<view class="bg">
+  <view class="head">
+    <view class="headIcon">
+      <image src="{{userInfo.avatarUrl}}" style="width:70px;height:70px;"></image>
+    </view>
+    <view class="login">
+      <view class='login_nick'>
+        <view>
+          <text>{{userInfo.nickName}}</text>
+          <text class='p_student'>学生</text>
+        </view>
+        <view class='p_coin'><image class="icons gold" src='/utils/img/icons.png'></image>金币余额:54</view>
+      </view>
+      <view class='login_daka'>
+       <p class="qd_info">签到有礼</p>
+       <p class="days">立即签到</p>
+      </view>
+    </view>
+  </view>
+  <button class="button" open-type="getUserInfo" wx:if="{{!hasUserInfo}}" bindgetuserinfo="getUserInfo"> 微信登录 </button>
+  <view class='p_sty_info'>
+    <view class='p_sty_info_time'>
+      <text>1</text>
+      <view>今日学习(分钟)</view>
+    </view>
+    <view class='p_sty_info_day'>
+      <text>1</text>
+      <view>打卡天数</view>
+    </view>
+  </view>
+</view>
+<view class="hr"></view>
+<navigator url="../personal_info/personal_info" class='item'>
+  <view class="title">基本信息</view>
+  <view class="detail2">
+    <text>></text>
+  </view>
+</navigator>
+<view class="line"></view>
+<navigator url="../my_course/my_course" class='item'>
+  <view class="title">我的课程</view>
+  <view class="detail2">
+    <text>></text>
+  </view>
+</navigator>
+<view class="line"></view>
+<navigator url="../icons_list/icons_list" class='item'>
+  <view class="title">金币记录</view>
+  <view class="detail2">
+    <text>></text>
+  </view>
+</navigator>
+<view class="line"></view>
+<navigator url="../feedback/feedback" class='item'>
+  <view class="title">意见反馈</view>
+  <view class="detail2">
+    <text>></text>
+  </view>
+</navigator>
+<view class="line"></view>
+<navigator url="../call_me/call_me" class='item'>
+  <view class="title">联系我们</view>
+  <view class="detail2">
+    <text>></text>
+  </view>
+</navigator>
+<view class="line"></view>
+<navigator url="../about/about" class='item'>
+  <view class="title">关于我们</view>
+  <view class="detail2">
+    <text>></text>
+  </view>
+</navigator>
+<view class="hr"></view>

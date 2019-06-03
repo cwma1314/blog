@@ -1,0 +1,12 @@
+/**index.wxss**/
+.load-wel-btn{
+  margin-left: 8px;
+  margin-right: 8px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  display: block;
+  line-height: 2.3;
+  font-size: 13px;
+  padding: 0 1.34em;
+  width: 100%;
+}

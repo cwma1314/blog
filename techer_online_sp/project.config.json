@@ -1,0 +1,111 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false,
+		"checkInvalidKey": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.6.6",
+	"appid": "wx3d95dbaab054d037",
+	"projectname": "techer_online_sp",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 8,
+			"list": [
+				{
+					"id": -1,
+					"name": "course",
+					"pathName": "pages/course/course",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "welcome",
+					"pathName": "pages/welcome/welcome",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "person",
+					"pathName": "pages/person/person",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "course_detail",
+					"pathName": "pages/course_detail/course_detail?id=9711457",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "course_detail",
+					"pathName": "pages/course_detail/course_detail",
+					"query": "id=9711457",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "course_topic",
+					"pathName": "pages/course_topic/course_topic",
+					"query": "id=9711457",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "feedback",
+					"pathName": "pages/feedback/feedback",
+					"query": "id=9711457",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "index",
+					"pathName": "pages/index/index",
+					"query": "id=9711457",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "course_topic",
+					"pathName": "pages/course_topic/course_topic",
+					"query": "id=1&title=11&type=1",
+					"scene": null
+				}
+			]
+		}
+	}
+}

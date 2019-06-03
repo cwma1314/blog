@@ -1,0 +1,38 @@
+/* pages/feedback/feedback.wxss */
+page {
+  font-size: 30rpx;
+}
+.index_seach {
+  width: 100%;
+  margin-top: 20rpx;
+  height: auto;
+  margin-bottom: 30rpx;
+}
+.textarea {
+  width: 100%;
+  margin-top: 10rpx;
+  border: 1px solid #ccc;
+  padding: 8rpx;
+  /* background: lightblue; */
+  overflow: hidden;
+}
+.textarea textarea {
+  width: 100%;
+  height: 230rpx;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+  /* background: lightcoral; */
+}
+
+/* 表单类通用 表单类通用 表单类通用*/
+.subClass_btn2 {
+  margin-top: 40rpx;
+  margin-left: 4rpx;
+  margin-right: 4rpx;
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 30rpx;
+  color: #fff;
+  background: #00a2ea;
+}

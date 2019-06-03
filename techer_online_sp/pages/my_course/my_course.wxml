@@ -1,0 +1,18 @@
+<view class="container">
+  <view class="news-item-container">
+    <block wx:for="{{my_course_list}}" wx:key="index" wx:for-index="id">
+      <navigator url="../course_detail/course_detail?id={{item.id}}">
+        <view class="news-item">
+          <view class="news-item-right">
+            <image src="{{item.image}}" class="news-image" />
+          </view>
+          <view class="news-item-left">
+            <view class="news-item-title">{{item.title}}</view>
+            <progress percent="{{item.percent}}" stroke-width="6" class="cs-progress" color="#00a2ea" />
+            <text class="cs-text">学习进度：{{item.read_num}}章/{{item.plan_num}}章</text>
+          </view>
+        </view>
+      </navigator>
+    </block>
+  </view>
+</view>

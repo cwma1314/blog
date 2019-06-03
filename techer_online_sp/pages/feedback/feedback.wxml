@@ -1,0 +1,8 @@
+<view class='index_seach'>
+        <form bindsubmit="back_houtai">
+            <view class='textarea'>
+              <textarea placeholder='请输入意见反馈。' cursor-spacing='20' name="self_intro"></textarea>
+            </view>
+          <button class='subClass_btn2' formType="submit">确定</button>
+        </form>
+      </view>
